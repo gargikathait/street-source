@@ -1,12 +1,19 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { MockDatabase } from ../../shared/database";
+import { MockDatabase } from '../../shared/database'
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const orderId = req.query.orderId as string;
+export default async function handler(req: Request): Promise<Response> {
+  const url = new URL(req.url);
+  const orderId = url.searchParams.get('orderId') || '';
 
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     const tracking = MockDatabase.getDeliveryTracking(orderId);
-    return res.status(200).json({ success: true, data: tracking });
+    return new Response(JSON.stringify({ success: true, data: tracking }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
-  return res.status(405).json({ error: "Method Not Allowed" });
+
+  return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+    status: 405,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }

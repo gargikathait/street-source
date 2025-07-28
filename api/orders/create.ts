@@ -1,11 +1,18 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { MockDatabase } from ../../shared/database";
+import { MockDatabase } from '../../shared/database'
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
-    const newOrder = req.body;
-    const createdOrder = MockDatabase.createOrder(newOrder);
-    return res.status(201).json({ success: true, data: createdOrder });
+export default async function handler(req: Request): Promise<Response> {
+  if (req.method !== 'POST') {
+    return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+      status: 405,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
-  return res.status(405).json({ error: "Method Not Allowed" });
+
+  const body = await req.json();
+  const newOrder = MockDatabase.createOrder(body);
+
+  return new Response(JSON.stringify({ success: true, data: newOrder }), {
+    status: 201,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }

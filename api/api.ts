@@ -1,5 +1,9 @@
 import { Request, Response } from 'express';
-import { MockDatabase } from ../../shared/database';
+import { MockDatabase } from '../shared/database';
+
+
+
+
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
