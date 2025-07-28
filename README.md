@@ -246,17 +246,4 @@ This creates optimized builds for both frontend and backend in the `dist/` direc
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Team
 
-- **Frontend Development**: React, TypeScript, Tailwind CSS
-- **Backend Development**: Node.js, Express, RESTful APIs
-- **UI/UX Design**: Mobile-first responsive design
-- **DevOps**: Vite build system, Netlify deployment
-
-## 📞 Support
-
-For support, email support@streetsource.com or join our community chat.
-
----
-
-**StreetSource** - Empowering street vendors with technology for better business outcomes. 🚀
