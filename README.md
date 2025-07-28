@@ -2,7 +2,7 @@
 
 A full-stack web application for street vendors to manage raw materials, compare suppliers, track orders, and process payments securely. Built with modern technologies and inspired by platforms like Blinkit and Digihaat.
 
-## 🚀 Features
+##  Features
 
 ### 🔐 User Management
 - **Enhanced Vendor Profile**: Complete profile management with business details, documents, and bank information
