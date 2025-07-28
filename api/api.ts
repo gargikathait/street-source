@@ -1,5 +1,16 @@
 import { Request, Response } from 'express';
-import { MockDatabase } from '../models/database';
+import { MockDatabase } from ../../shared/database';
+import { NextApiRequest, NextApiResponse } from "next";
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === "GET") {
+    // Example response
+    res.status(200).json({ message: "GET /api/api route working!" });
+  } else {
+    res.status(405).json({ error: "Method Not Allowed" });
+  }
+}
+
 
 // Vendor Profile APIs
 export const getVendorProfile = (req: Request, res: Response) => {
